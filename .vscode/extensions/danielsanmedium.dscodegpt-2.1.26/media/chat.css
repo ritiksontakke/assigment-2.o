@@ -1,0 +1,589 @@
+body {
+    padding: 0rem !important;
+    position: relative;
+}
+
+/* button[type="button"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+} */
+
+button[type="button"] svg {
+    margin-left: 10px;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* hides scrollbar */
+#chat_container::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #26292D;
+}
+
+.ai {
+    background: var(--vscode-menu-background);
+    position: relative;
+
+}
+
+.chat {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    align-items: flex-start;
+}
+
+.chat_header {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.chat_header span {
+    display: flex;
+    align-items: center;
+}
+
+.profile svg, .profile img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 0.2rem;
+    margin: 0;
+    background-color: #5436DA;
+    color: #fff;
+}
+
+.profile img {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background-color: transparent;
+}
+
+.ai .profile > svg {
+    background: #007acc;
+}
+
+.message {
+    flex: 1;
+    /*color: #dcdcdc;*/
+    width: 100%;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* hides scrollbar */
+.message::-webkit-scrollbar {
+    display: none;
+}
+
+/* Nuevo */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0 !important;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+#app {
+    flex-direction: column;
+    padding: 0;
+    display: flex;
+    max-width: 100%;
+    margin: auto !important;
+    max-height: 100%;
+    height: 100vh;
+    scroll-behavior: auto;
+}
+
+#app > footer {
+    position: absolute;
+    bottom: .1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    margin: auto auto 0 auto;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--vscode-menu-background);
+    border: 2px solid var(--vscode-menu-border);
+}
+
+#app > footer > textarea {
+    margin: 0;
+}
+
+#chat_container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    flex: 1;
+    overflow-y: scroll;
+    margin: auto auto 5rem auto;
+    /* scroll-behavior: smooth; */
+    background-color: transparent;
+    border: 1px solid var(--vscode-menu-border);
+}
+
+.wrapper {
+    max-width: 100%;
+    padding: .5rem;
+    width: 100%;
+}
+
+code, pre {
+    border-radius: .5rem;
+    position: relative;
+    width: 100%;
+}
+
+pre {
+    overflow: auto;
+    padding: 1rem;
+    margin-top: 0;
+    border-radius: 0 0 .5rem .5rem;
+    border: 1px solid #26292D;
+    border-top: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0.5em; /* ancho de la barra */
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; /* color del fondo */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent; /* color de la barra */
+}
+
+
+/* si pre tiene un hijo code  ambos tienen background: #background: #0d1117; */
+pre > code, pre {
+    background: #0d1117;
+}
+
+pre > code {
+    padding: 0 !important;
+}
+
+#prompt {
+    width: 100%;
+    max-height: 15rem;
+    margin: 0 auto 0.5rem auto;
+    background-color: transparent;
+    resize: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.copy-button, .insert-button, .copyAll-button, .commit-button, .newFileWithCode-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: inherit 0;
+}
+
+.copy-button:hover, .copy-button:focus, .insert-button:hover, .insert-button:focus, .copyAll-button:hover, .copyAll-button:focus, .commit-button:hover, .commit-button:focus, .newFileWithCode-button:hover, .newFileWithCode-button:focus {
+    outline: none;
+    background: transparent;
+}
+
+.copy-button:focus svg > path, .insert-button:focus svg > path, .copyAll-button:focus svg > path, .commit-button:focus svg > path, .newFileWithCode-button:focus svg > path {
+    fill: #007acc;
+}
+
+.copy-button:focus svg, .insert-button:focus svg, .copyAll-button:focus svg, .commit-button:focus svg, .newFileWithCode-button:focus svg {
+    transform: scale(1.2);
+}
+
+.copyAll-button {
+    position: absolute;
+    right: 1rem;
+    top: .5rem;
+}
+
+.ai:not(:hover) .copyAll-button {
+    display: none;
+}
+
+
+#prompt:focus {
+    outline: none;
+}
+
+button#btn-question {
+    border: none;
+    text-align: center;
+    outline: 1px solid transparent;
+    outline-offset: 2px !important;
+    color: var(--vscode-button-foreground);
+    background: var(--vscode-button-background);
+    border-radius: 1rem;
+    width: auto;
+    padding: 0.4rem 0.725rem;
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    justify-content: center;
+    background: linear-gradient(90deg, #b069ff, #83a6f3);
+    box-shadow: 0 0.1rem 0.4rem hsl(268deg 100% 71% / 50%);
+    color: #322442;
+}
+
+
+.initialTemplate {
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem 0;
+    font-size: .9rem;
+    line-height: 1.5rem;
+}
+
+.initialTemplate svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+#agentIcon {
+    width: auto;
+    height: auto;
+}
+
+#btn-settings {
+    width: 4rem;
+    height: 2rem;
+    align-self: center;
+    font-size: .9rem;
+    background: linear-gradient(90deg, #b069ff, #83a6f3);
+    box-shadow: 0 0.1rem 0.4rem hsl(268deg 100% 71% / 50%);
+    color: #322442;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.btn-conCodeGPTPlus {
+    align-self: center;
+    font-size: .9rem;
+    background: linear-gradient(90deg, #b069ff, #83a6f3);
+    box-shadow: 0 0.1rem 0.4rem hsl(268deg 100% 71% / 50%);
+    color: #322442;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    padding: .5rem;
+    text-decoration: none;
+}
+.btn-conCodeGPTPlus:hover {
+    color: #322442;
+}
+
+
+.initialTemplate ul {
+    list-style: none;
+}
+
+.initialTemplate li {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+/* remove all button styles */
+.initialTemplate li > button {
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--vscode-editorBracketHighlight-foreground1);
+}
+
+.initialTemplate li > button:hover {
+    text-decoration: underline;
+}
+
+#stopResponse {
+    display: none;
+    position: absolute;
+    bottom: 3rem;
+    z-index: 2;
+    width: 100%;
+    color: var(--vscode-foreground);
+    background: var(--vscode-menu-background);
+    border: 1px solid var(--vscode-menu-border);
+    padding: 0.5rem;
+    text-align: center;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+#scrollDiv {
+    height: 1rem;
+    background: transparent;
+}
+
+.codeblockHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+    width: 100%;
+    background: #0d1117;
+    position: relative;
+    border-radius: .5rem .5rem 0 0;
+    border: 1px solid #26292D;
+}
+
+.codeblockHeader > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.codeblockHeader span {
+    text-transform: capitalize;
+    padding: 0 1rem;
+}
+
+#agentContainer {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--vscode-settings-dropdownBackground);
+    flex-direction: column;
+    display: none;
+    overflow: auto;
+    border-radius: .5rem;
+    border: 1px solid var(--vscode-settings-dropdownBorder);
+    padding: 1rem;
+    margin: 0;
+    top: 0;
+    right: 0;
+    gap: .3rem;
+    align-items: flex-start;
+}
+
+#agentList {
+    overflow-y: auto;
+    max-height: 15rem;
+}
+
+#agentList > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    margin: 0;
+    padding: 0;
+}
+
+#agentButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#agentContainer a {
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0;
+    cursor: pointer;
+    align-items: center;
+    align-self: flex-end;
+
+    width: fit-content;
+    height: fit-content;
+    font-size: .7rem;
+    background: linear-gradient(90deg, #b069ff, #83a6f3);
+    box-shadow: 0 0.1rem 0.4rem hsl(268deg 100% 71% / 50%);
+    color: #322442;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+#agentContainer label {
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    gap: 5px;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    overflow: hidden;
+    max-width: 20rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#agentContainer label > * {
+    overflow: hidden;
+}
+
+.judini-link-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#slashCommands {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--vscode-settings-dropdownBackground);
+    flex-direction: column;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    bottom: 3rem;
+    left: 0;
+    padding: .5rem;
+    border: 1px solid var(--vscode-settings-dropdownBorder);
+    width: 100%;
+}
+
+#slashCommands ul {
+    list-style: none;
+    padding: .3rem;
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+#slashCommands ul:hover {
+    background: var(--vscode-settings-dropdownBorder);
+}
+
+#slashCommands li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+p {
+    line-height: 1.4rem;
+}
+
+
+/* tables ↓ */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-color: var(--vscode-settings-numberInputBackground);
+    margin-bottom: 1rem;
+}
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+table {
+    margin-top: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-color: var(--vscode-settings-numberInputBackground);
+    margin-bottom: 1rem;
+}
+
+th:first-child {
+    border-top-left-radius: 0.375rem;
+}
+
+th:last-child {
+    border-top-right-radius: 0.375rem;
+    border-right-width: 1px;
+}
+
+th {
+    background-color: var(--vscode-settings-dropdownBackground);
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    padding: 0.25rem 0.75rem;
+}
+
+thead tr th {
+    color: inherit;
+}
+
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 0.375rem;
+    border-left-width: 1px;
+}
+
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 0.375rem;
+    border-right-width: 1px;
+}
+
+td {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    padding: 0.5rem 0.75rem;
+}
+
+td:last-child {
+    border-right-width: 1px;
+}
